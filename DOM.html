@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<script>
+			document.addEventListener("DOMContentLoaded", button);
+		
+		function button() {
+    			var btn = document.createElement("BUTTON");
+				var text=document.createTextNode("Click")
+				btn.addEventListener("click", onClick);
+				btn.appendChild(text);
+				document.body.appendChild(btn);
+				}
+		
+		function onClick() {
+			var div = document.createElement("div");
+			var p= document.createElement("p");
+			div.addEventListener("click", squareClick);
+			div.addEventListener("mouseenter",hover );
+			div.addEventListener("mouseleave", leave);
+			div.className = 'square';
+			div.id = document.getElementsByClassName('square').length;
+			// div.style.backgroundColor = 'black';
+			// div.style.height = '100px';
+			// div.style.width = '100px';
+			// div.style.margin = '10px';
+			// div.style.cssFloat = 'left';
+			document.body.appendChild(p);
+			document.body.appendChild(div);
+		}
+		
+		function squareClick(e) {
+		e.target.style.backgroundColor = '#'+Math.random().toString(16).substr(-6);
+		}
+		
+		function hover(e) {
+			
+			e.target.innerHTML = e.target.id;
+		}
+		
+		function leave(e) {
+			e.target.innerHTML="";
+		}
+			
+			</script>
+	</head>
+	
+	<body>
+		<!--NO HTML-->
+	</body>
+</html>
