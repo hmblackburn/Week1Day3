@@ -19,6 +19,7 @@
 			div.addEventListener("click", squareClick);
 			div.addEventListener("mouseenter",hover );
 			div.addEventListener("mouseleave", leave);
+			div.addEventListener("dblclick", remove);
 			div.className = 'square';
 			div.id = document.getElementsByClassName('square').length;
 			// div.style.backgroundColor = 'black';
@@ -34,14 +35,34 @@
 		e.target.style.backgroundColor = '#'+Math.random().toString(16).substr(-6);
 		}
 		
-		function hover(e) {
-			
+		
+		
+		function hover(e) {	
 			e.target.innerHTML = e.target.id;
 		}
 		
 		function leave(e) {
 			e.target.innerHTML="";
 		}
+		
+		function remove(e) {
+				if (e.target.id % 2 == 0) {
+					if (!e.target.nextSibling) {
+						alert("no");
+					}
+					else{
+					e.target.nextSibling.remove();
+					}
+				}
+				else { 
+					if (e.target.previousSibling.nodeName != "DIV") {
+						alert("no");
+					}
+					else{
+					e.target.previousSibling.remove();
+					}
+				}
+			}
 			
 			</script>
 	</head>
